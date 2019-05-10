@@ -39,7 +39,7 @@ class spam_filter():
                 classes = self.classes
 
 
-                for i in range(2500):
+                for i in range(len(data)):
                         tokens = tokenizer.tokenize(data['text'][i])
     
                         # Remove stop words
