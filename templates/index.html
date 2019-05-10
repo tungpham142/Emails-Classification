@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Spam Filter</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/animate/animate.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static', filename='css/style-red.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: DevFolio
+    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+
+  <!-- Classification Section -->
+<section id="classification" class="search-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box-shadow-full">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="title-box text-center">
+                <h3 class="title-a">
+                  Classify Your Email
+                </h3>
+                <p class="subtitle-a">
+                  Enter Your Email Content
+                </p>
+                <div class="line-mf"></div>           
+              </div>
+              <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto text-center">
+                    <div class="form-group">
+                      <form method="POST">
+                        <input name="classify" class="form-control" id="classify" placeholder="Classify this content" required="true"/>
+                        <p class="pt-3"><input type="submit" id="btn1" class="btn btn-danger btn js-scroll px-4" value="Classify"/></p>
+                      </form>                  
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!--/ Section Classification Result /-->
+ {% if classification != None %}
+ <section id="classified" class="found-mf sect-pt4 route">
+ {% else %}
+ <section id="classified" class="found-mf sect-pt4 route" style="display:none">
+ {% endif %}
+ {% if scroll == "classification" %}
+ <script>
+     document.location.hash = '#classification';
+ </script>
+ {% endif %}
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="box-shadow-full">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-sm-6 col-md-5">
+                <div class="about-img">
+                  <img src="img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                </div>
+              </div>
+            </div>
+            {% if classification != None %}
+            <div class="skill-mf">
+              <p class="title-s">Your Email is: </p>
+              {% if classification == 0 %}
+              <span>Not Spam</span> 
+              {% else %}
+              <span>Spam</span>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+
+  <!--/ Section Contact-Footer Star /-->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(static/img/work-3.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="contact-mf">
+            <div id="contact" class="box-shadow-full">
+              <div class="row">     
+                <div class="col-sm-6"></div>           
+                <div class="col-md-6">
+                  <div class="title-box-2 pt-4 pt-md-0">
+                    <h5 class="title-left">
+                      Contact Information
+                    </h5>
+                  </div>
+                  <div class="more-info">
+                    <p class="lead">
+                      Web Application built for reseach purpose by Tung Pham. 
+                    </p>
+                    <ul class="list-ico">
+                      <li><span class="ion-ios-person"></span>tungpv.com</li>
+                      <li><span class="ion-ios-location"></span>Fort Worth, Texas</li>                    
+                      <li><span class="ion-ios-telephone"></span>(682) 559-4336</li>
+                      <li><span class="ion-email"></span>tpv.142@gmail.com</li>
+                    </ul>
+                  </div>
+                  <div class="socials">
+                    <ul>
+                      <li><a href="https://tungpv.com"><span class="ico-circle"><i class="ion-ios-person"></i></span></a></li>
+                      <li>
+                        <a href="https://www.linkedin.com/in/tung-viet-pham/">
+                        <span class="ico-circle"><i class="ion-social-linkedin"></i></span></a>
+                      </li>                     
+                      <li><a href="https://github.com/tungpv92"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">&copy; Copyright <strong> Spam Classification </strong>. All Rights Reserved</p>
+              <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <!--/ Section Contact-footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/popper/popper.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/easing/easing.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/counterup/jquery.waypoints.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/counterup/jquery.counterup.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/typed/typed.min.js')}}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{{ url_for('static', filename='contactform/contactform.js')}}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+  $('#searchbtn').on('click', function(){
+  console.log('test');
+  $('#found').show('slow');
+  });
+</script>
