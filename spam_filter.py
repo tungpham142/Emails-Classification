@@ -40,9 +40,8 @@ class spam_filter():
 
 
                 for i in range(len(data)):
-                        context = data['text'][i]
-                        if(context != None):
-                                tokens = tokenizer.tokenize(context)
+                        
+                        tokens = tokenizer.tokenize(data['text'][i])
     
                         # Remove stop words
                         final_tokens = []
