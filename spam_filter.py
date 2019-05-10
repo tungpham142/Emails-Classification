@@ -15,7 +15,7 @@ def concatenate_text(classes, document, c):
 	return text_in_c
 
 class spam_filter():
-        data = pd.read_csv('emails.csv')
+        data = pd.read_csv('email.csv')
         tokenizer = RegexpTokenizer(r'[a-zA-Z]+')
         stops = stopwords.words('english')
         stemmer = PorterStemmer()
@@ -39,8 +39,10 @@ class spam_filter():
                 classes = self.classes
 
 
-                for i in range(2500):
-                        tokens = tokenizer.tokenize(data['text'][i])
+                for i in range(len(data)):
+                        context = data['text'][i]
+                        if(context != None):
+                                tokens = tokenizer.tokenize(context)
     
                         # Remove stop words
                         final_tokens = []
@@ -74,7 +76,6 @@ class spam_filter():
                 # Apply tokenize, stop words, and stemming to query
                 query_vocab = []
                 terms = self.tokenizer.tokenize(query)
-                print(terms)
                 for term in terms:
                         term = term.lower()
                         if term not in self.stops:
@@ -88,6 +89,4 @@ class spam_filter():
                                 if term in self.condprob:
                                         score[c] += math.log(self.condprob[term][c])
 
-                print(self.prior)
-                print(score)
                 return max(score, key=score.get)
