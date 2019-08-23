@@ -1,4 +1,4 @@
-<h1>Spam Filter</h1>
+<h1>Emails Classification</h1>
 Small Project to classify if an email is spam or not.</br>
 Implemented using Flask framework with python and a bootstrap HTML/CSS template.</br>
 
